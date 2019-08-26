@@ -24,11 +24,11 @@ Route::namespace('Api\V1')
     Route::post('/register','AuthController@register');
     Route::post('/login','AuthController@login');
 
-    // for Product
+    // For Product
     Route::get('/product','ProductController@index');
     Route::get('/search_product/{id}','ProductController@search');
 
-    // for Category
+    // For Category
     Route::get('/category','CategoryController@index');
     Route::get('/search_category/{id}','CategoryController@search');
     Route::post('/create_category','CategoryController@store');
