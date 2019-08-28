@@ -27,24 +27,4 @@ class HomepageController extends Controller
         return view('filterpage',compact('products','categories','category'));
     }
 
-    public function addcart(Request $request,$id) {
-        $items = array();
-
-        if($request->session()->has('items')) {
-            $items = $request->session()->get('items');
-            if(!in_array($id,$items)) {
-                array_push($items,$id);
-            }
-        } else {
-            array_push($items,$id);
-        }
-
-        $request->session()->put('items',$items);
-        // $request->session()->flush();
-
-        $products = Product::all();
-        $categories = Category::all();
-
-        return view('homepage',compact('products','categories'));
-    }
 }

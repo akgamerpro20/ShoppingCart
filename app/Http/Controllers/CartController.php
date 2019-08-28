@@ -95,13 +95,13 @@ class CartController extends Controller
 
         $order = new Order();
         $order->cart = serialize($cart);
-        $order->name = $request->input('name');        
-        $order->address = $request->input('address');        
-        $order->card_name = $request->input('card_name');        
-        $order->card_number = $request->input('card_number');        
-        $order->exp_month = $request->input('exp_month');        
-        $order->exp_year = $request->input('exp_year');        
-        $order->cvc = $request->input('cvc');   
+        $order->name = $request->get('name');        
+        $order->address = $request->get('address');        
+        $order->card_name = $request->get('card_name');        
+        $order->card_number = $request->get('card_number');        
+        $order->exp_month = $request->get('exp_month');        
+        $order->exp_year = $request->get('exp_year');        
+        $order->cvc = $request->get('cvc');   
         
         Auth::user()->orders()->save($order);
 
